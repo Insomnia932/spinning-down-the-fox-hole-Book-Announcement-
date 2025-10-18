@@ -203,6 +203,108 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
           <div class="game-title">Spinning Down The Fox Hole </div>
           <button id="playGameBtn">Play</button>
         </section>
+        <!-- Character Bios Carousel (Add Below Game Section) -->
+<section class="character-bios">
+  <h2 style="color:var(--gold); margin-bottom:12px;">Character Bios</h2>
+  <div class="name-card carousel-card">
+    <div class="card-content">
+      <h2 class="card-name">MARA</h2>
+      <p class="card-desc">
+        The eldest sister — the compass.<br><br>
+        Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray.
+      </p>
+      <div class="card-controls">
+        <button class="prev-btn">&lt; Prev</button>
+        <button class="next-btn">Next &gt;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Modular Character Carousel
+(function(){
+  const carousel = document.querySelector('.carousel-card');
+  const cardName = carousel.querySelector('.card-name');
+  const cardDesc = carousel.querySelector('.card-desc');
+  const prevBtn = carousel.querySelector('.prev-btn');
+  const nextBtn = carousel.querySelector('.next-btn');
+
+  const flashCards = [
+    { name: "MARA", desc: "The eldest sister — the compass.<br><br>Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray." },
+    { name: "AVELINE", desc: "The protector — the one who endures.<br><br>Measured and perceptive, Aveline carries responsibility like a second skin. She’s the first to act, the last to rest, and the one who always tries to keep the storm outside from finding its way in." },
+    { name: "VIOLET", desc: "The dreamer — the heart that bruises easily.<br><br>Soft-spoken but sharp, Violet feels the world too deeply. She moves through love and fear like twin reflections, drawn to beauty even when it burns." },
+    { name: "FAYE", desc: "The youngest — the spark in the dark.<br><br>Restless, creative, and endlessly curious. Faye is both the bridge and the spark between her sisters, her imagination a light that flickers between wonder and shadow." },
+    { name: "REN", desc: "The stranger — the charm that unsettles.<br><br>Magnetic and unknowable, Ren lives at the edges of the sisters’ story — where fascination becomes danger, and love leaves a lasting mark." }
+  ];
+
+  let index = 0;
+
+  function updateCard(){
+    cardName.innerHTML = flashCards[index].name;
+    cardDesc.innerHTML = flashCards[index].desc;
+  }
+
+  prevBtn.addEventListener('click', ()=>{
+    index = (index - 1 + flashCards.length) % flashCards.length;
+    updateCard();
+  });
+
+  nextBtn.addEventListener('click', ()=>{
+    index = (index + 1) % flashCards.length;
+    updateCard();
+  });
+
+  updateCard();
+})();
+</script>
+
+<style>
+/* Character carousel card */
+.character-bios{width:100%; margin-top:24px; text-align:center;}
+.name-card.carousel-card {
+  width:100%;
+  max-width:540px;
+  min-height:250px;
+  background:#000;
+  border:2px solid var(--gold);
+  border-radius:12px;
+  padding:1.8rem;
+  text-align:center;
+  margin:0 auto 24px;
+}
+.name-card.carousel-card h2{
+  font-family:'Dancing Script', cursive;
+  font-size:2.2rem;
+  color:var(--gold);
+  margin-bottom:0.8rem;
+}
+.name-card.carousel-card p{
+  font-family:'Dancing Script', cursive;
+  font-size:1.1rem;
+  color:var(--gold);
+  line-height:1.5;
+}
+.card-controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:1rem;
+}
+.card-controls button{
+  background:var(--gold);
+  color:#000;
+  border:none;
+  border-radius:6px;
+  padding:6px 14px;
+  cursor:pointer;
+  font-family:'Dancing Script', cursive;
+}
+@media (max-width:700px){
+  .name-card.carousel-card h2{font-size:1.8rem;}
+  .name-card.carousel-card p{font-size:1rem;}
+  .card-controls button{font-size:0.9rem; padding:5px 10px;}
+}
+</style>
       </div>
     </main>
   </div>
