@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spinning Down The Foxhole — Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --cream:#f5e6cc;
+  --gold:#d4af37;
+  --gap:2rem;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;}
+html,body{height:100%; margin:0;}
+body{
+  font-family: "Playfair Display", serif;
+  background:var(--bg);
+  color:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* CINEMATIC OVERLAY */
+#introOverlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#000;
+  z-index:99999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  opacity:1;
+}
+#introOverlay #closeOverlayBtn {
+  position: absolute;
+  top:20px;
+  right:20px;
+  font-size:32px;
+  color:#fff;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  z-index:1000;
+}
+#shhhText {
+  font-family: 'Great Vibes', cursive;
+  font-size:6rem;
+  white-space: nowrap;
+  display:flex;
+  align-items:flex-end;
+}
+.char { color: gold; opacity:0; transform: translateY(20px); animation: fadeInChar 0.6s forwards; }
+.dot { color: gold; font-size:1.2em; opacity:0; transform: translateY(20px); animation: fadeInChar 0.6s forwards; }
+.blood {
+  color:#8B0000; font-size:1.2em; opacity:0; display:inline-block;
+  transform: translateY(20px);
+  animation: fadeInBlood 0.6s forwards, dripMorph 2.5s 2.4s forwards ease-in;
+}
+.char:nth-child(1){ animation-delay:0.2s; }
+.char:nth-child(2){ animation-delay:0.5s; }
+.char:nth-child(3){ animation-delay:0.8s; }
+.char:nth-child(4){ animation-delay:1.1s; }
+.dot:nth-child(5){ animation-delay:1.4s; }
+.dot:nth-child(6){ animation-delay:1.7s; }
+.dot:nth-child(7){ animation-delay:2s; }
+.blood { animation-delay:2.3s; }
+
+@keyframes fadeInChar {0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes fadeInBlood {0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes dripMorph {
+  0% { transform: translateY(0) scaleY(1) scaleX(1); opacity:1; border-radius:50%/50%; }
+  25% { transform: translateY(15px) scaleY(1.3) scaleX(0.8); opacity:0.9; border-radius:50%/60%; }
+  50% { transform: translateY(35px) scaleY(1.5) scaleX(0.6); opacity:0.7; border-radius:50%/70%; }
+  75% { transform: translateY(65px) scaleY(1.7) scaleX(0.5); opacity:0.5; border-radius:50%/80%; }
+  100% { transform: translateY(100px) scaleY(2) scaleX(0.5); opacity:0; border-radius:50%/90%; }
+}
+
+#introOverlay.fadeOut {opacity:0; transition:opacity 2s ease;}
+
+/* LANDING PAGE */
+#mainLanding{display:none; width:100%; max-width:var(--maxw);}
+h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; margin:0; text-align:center;}
+.top-block{width:100%; max-width:var(--maxw); text-align:center;}
+#countdown{color:var(--gold); margin-top:8px; font-size:1.05rem;}
+.fox-divider{display:flex; justify-content:center; align-items:center; margin:14px 0 18px; z-index:3; position:relative;}
+.fox-divider img{max-width:150px; width:12vw; min-width:96px; z-index:3; position:relative;}
+.container{width:100%; max-width:var(--maxw); display:flex; gap:var(--gap); align-items:stretch; position:relative; padding:12px 6px; min-height:60vh;}
+.container::before{content:""; position:absolute; left:50%; transform:translateX(-50%); top:24px; bottom:24px; width:3px; background: linear-gradient(180deg, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0.6) 50%, rgba(212,175,55,0.95) 100%); box-shadow:0 0 18px rgba(212,175,55,0.45),0 0 36px rgba(212,175,55,0.16); filter:blur(1.6px); border-radius:2px;}
+.left-page, .right-page{flex:1; display:flex; flex-direction:column; gap:1rem; padding:12px; background:transparent; z-index:1;}
+.page-inner{display:flex; flex-direction:column; gap:1rem; flex:1; align-items:center;}
+.book-grid, .character-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; width:100%;}
+.book-grid img, .character-grid img{width:100%; height:auto; display:block; border-radius:6px; border:2px solid rgba(212,184,144,0.07); background:#070707; object-fit:cover;}
+.announcement{color:var(--cream); line-height:1.45; font-size:0.95rem;}
+.video-section{text-align:center; margin-top:4px;}
+.video-section .subtitle{color:var(--gold); margin-bottom:6px;}
+.video-section video{width:100%; max-width:520px; border-radius:8px; border:2px solid rgba(212,175,55,0.12); display:block; margin:0 auto;}
+.quote-carousel{position:relative; width:100%; max-width:540px; margin:0 auto;}
+.quotes-container{position:relative; min-height:86px;}
+.quote{position:absolute; left:0; top:0; width:100%; opacity:0; transition:opacity 420ms ease;}
+.quote.active{opacity:1;}
+.quote-text{font-style:italic; color:var(--gold);}
+.quote-controls{position:absolute; top:50%; left:0; right:0; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none;}
+.quote-controls button{pointer-events:auto; background:transparent; border:none; color:var(--gold); font-size:1.25rem; cursor:pointer; padding:6px;}
+.game-preview{margin-top:24px; display:flex; flex-direction:column; align-items:center; border:2px solid rgba(212,175,55,0.12); padding:12px; border-radius:8px; max-width:240px;}
+.game-preview img{width:100%; border-radius:6px;}
+.game-preview .game-title{margin-top:8px; font-weight:700; color:var(--gold); font-size:1rem; text-align:center;}
+.game-preview button{margin-top:10px; padding:8px 14px; background:var(--gold); border:none; border-radius:6px; font-weight:700; cursor:pointer; color:#000;}
+#gameContainer{display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; background:rgba(0,0,0,0.95); flex-direction:column; align-items:center; justify-content:center;}
+#gameContainer iframe{width:100%; height:100%; border:none;}
+#closeGameBtn{position:absolute; top:10px; right:10px; font-size:24px; padding:8px 12px; cursor:pointer; z-index:1000;}
+#pageFooter{position:fixed; bottom:0; width:100%; text-align:center; color:var(--cream); background:rgba(0,0,0,0.3); padding:8px 0; font-size:0.85rem; z-index:1000; pointer-events:none;}
+@media (max-width:780px){.container{flex-direction:column; padding:6px; min-height:auto;}}
+</style>
+</head>
+<body>
+
+<!-- CINEMATIC OVERLAY -->
+<div id="introOverlay">
+  <button id="closeOverlayBtn">✖</button>
+  <span id="shhhText">
+    <span class="char">S</span><span class="char">h</span><span class="char">h</span><span class="char">h</span>
+    <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+    <span class="blood">.</span>
+  </span>
+</div>
+
+<!-- MAIN LANDING -->
+<div id="mainLanding">
+  <div class="top-block">
+    <h1>Spinning Down The Foxhole</h1>
+    <div id="countdown">Countdown: —</div>
+    <div class="fox-divider" aria-hidden="true">
+      <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Fox divider">
+    </div>
+  </div>
+
+  <div class="container">
+    <aside class="left-page">
+      <div class="page-inner">
+        <section class="book-grid">
+          <img src="https://i.ibb.co/QjKD7v1R/file-0000000017586246b7bb65427fa2d053.png" alt="Book cover 1">
+          <img src="https://i.ibb.co/Kj09MMH2/foxxiiibookcover-001.png" alt="Book cover 2">
+          <img src="https://i.ibb.co/zVhJH24K/file-00000000d16c620ab06fc7760df24d73.png" alt="Book poster 1">
+          <img src="https://i.ibb.co/7dFqj4cD/file-000000001404620ab819e3b15f35debe.png" alt="Book poster 2">
+        </section>
+
+        <section class="announcement" aria-label="Announcement">
+  <strong>✨ Book Launch Announcement</strong><br><br>
+  So excited to finally share this…<br>
+  My debut novel, <strong>Spinning Down the Fox Hole – Sisters’ Secret</strong>, releases on November 5th, 2025! 🦊✨<br><br>
+  A haunting, cinematic journey of three sisters bound by memory, loss, and secrets buried deep within the shadows of a mysterious cabin in France.<br>
+  Blending family drama, psychological tension, and folklore magic, this story pulls readers into a web of truth, trauma, and the lingering ghost of what was left behind.<br><br>
+  📖 First Edition – Independently Published, UK<br>
+  💫 Available worldwide on Amazon and major retailers<br>
+  🗓️ Release Date: November 5th, 2025<br><br>
+  Stay tuned for teasers, cover reveals, and exclusive sneak peeks —<br>
+  the fox is coming out of the shadows… 🖤🦊<br><br>
+  #SpinningDownTheFoxHole #JamieLeighMathieson #BookLaunch #IndieAuthor #MysteryThriller #SistersSecret #NewRelease #PsychologicalFiction
+</section>
+
+        <section class="video-section">
+          <div class="subtitle">Trailer</div>
+          <video controls preload="metadata">
+            <source src="https://res.cloudinary.com/dyglwmnzh/video/upload/v1760629528/lv_0_20251016163839_ml0ygv.mp4" type="video/mp4">
+          </video>
+        </section>
+      </div>
+    </aside>
+
+    <!-- RIGHT PAGE -->
+    <main class="right-page">
+      <div class="page-inner">
+        <section class="character-grid">
+          <img src="https://i.ibb.co/WN5LbDx8/Screenshot-20251011-162417-Chat-GPT.jpg" alt="The McAlpine Sisters">
+          <img src="https://i.ibb.co/2YqdwBNR/file-00000000092061f4a92785320f3c26b6.png" alt="Ren">
+          <img src="https://i.ibb.co/5h9989gw/file-0000000090ec61f5ac1c9eb51002ec6c.png" alt="Ren and Violet">
+          <img src="https://i.ibb.co/DHs2Zfzw/Messenger-creation-1-A5-F92-BB-9-A4-D-4221-B4-E6-4-E1-DEC52-D93-E.jpg" alt="Cabin portrait">
+        </section>
+
+        <section class="quote-carousel">
+          <div class="quotes-container">
+            <div class="quote active"><p class="quote-text">“The past will always be the past. But it doesn’t stop haunting me.”</p></div>
+            <div class="quote"><p class="quote-text">“Before I had time to think, I had already decided. I dropped my phone into my bag, slipped off my shoes, and jumped.”</p></div>
+            <div class="quote"><p class="quote-text">“Even in beauty, there’s loneliness—the kind that clings, even when the world feels endless.”</p></div>
+            <div class="quote"><p class="quote-text">“He laughed into my hair, and for a moment the world was quiet again, small enough to fit inside the space between us.”</p></div>
+          </div>
+          <div class="quote-controls">
+            <button id="prevQuote">&#10094;</button>
+            <button id="nextQuote">&#10095;</button>
+          </div>
+        </section>
+
+        <section class="game-preview">
+          <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Game">
+          <div class="game-title">Spinning Down The Fox Hole </div>
+          <button id="playGameBtn">Play</button>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- GAME OVERLAY -->
+<div id="gameContainer">
+  <button id="closeGameBtn">✖</button>
+  <iframe id="gameFrame" src=""></iframe>
+</div>
+
+<footer id="pageFooter">©️ Spinning Down the Foxhole</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', ()=>{
+  const cinematicOverlay = document.getElementById('introOverlay');
+  const closeOverlayBtn = document.getElementById('closeOverlayBtn');
+  const mainLanding = document.getElementById('mainLanding');
+
+  function fadeOutOverlay(){
+    cinematicOverlay.classList.add('fadeOut');
+    setTimeout(()=>{ cinematicOverlay.style.display='none'; mainLanding.style.display='block'; },2000);
+  }
+
+  // Auto fade after 5 seconds
+  setTimeout(fadeOutOverlay,5000);
+  closeOverlayBtn.addEventListener('click',fadeOutOverlay);
+
+  // Countdown timer
+  const el = document.getElementById('countdown');
+  const targetDate = new Date('November 5, 2025 00:00:00');
+  function updateCountdown(){
+    const now = new Date();
+    let diff = targetDate - now;
+    if(diff<=0){ el.textContent="Released!"; return; }
+    const days=Math.floor(diff/(1000*60*60*24));
+    diff-=days*(1000*60*60*24);
+    const hours=Math.floor(diff/(1000*60*60));
+    diff-=hours*(1000*60*60);
+    const minutes=Math.floor(diff/(1000*60));
+    diff-=minutes*(1000*60);
+    const seconds=Math.floor(diff/1000);
+    el.textContent=`${days}d ${hours}h ${minutes}m ${seconds}s until release`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  // Quote carousel
+  const quotes = Array.from(document.querySelectorAll('.quote'));
+  let idx=0;
+  function show(i){ quotes.forEach((q,j)=> q.classList.toggle('active',i===j)); }
+  function next(){ idx=(idx+1)%quotes.length; show(idx); }
+  function prev(){ idx=(idx-1+quotes.length)%quotes.length; show(idx); }
+  document.getElementById('nextQuote').addEventListener('click',next);
+  document.getElementById('prevQuote').addEventListener('click',prev);
+  show(idx);
+  setInterval(next,4000);
+
+  // Game overlay
+  const playBtn=document.getElementById('playGameBtn');
+  const overlayGame=document.getElementById('gameContainer');
+  const iframe=document.getElementById('gameFrame');
+  const closeGameBtn=document.getElementById('closeGameBtn');
+
+  playBtn.addEventListener('click', async ()=>{
+    iframe.src='https://insomnia932.github.io/spinning-down-the-fox-hole-game/';
+    overlayGame.style.display='flex';
+    if(overlayGame.requestFullscreen) await overlayGame.requestFullscreen();
+  });
+
+  closeGameBtn.addEventListener('click', async ()=>{
+    overlayGame.style.display='none';
+    iframe.src='';
+    if(document.fullscreenElement) await document.exitFullscreen();
+  });
+});
+</script>
+
+</body>
+</html>
+
