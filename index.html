@@ -12,9 +12,9 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-K8KHZ36J4V');
 </script>
+
 <style>
 :root{
   --bg:#000;
@@ -36,7 +36,7 @@ body{
   align-items:center;
 }
 
-/* CINEMATIC OVERLAY */
+/* Overlay */
 #introOverlay {
   position: fixed;
   top:0; left:0;
@@ -95,44 +95,49 @@ body{
 
 #introOverlay.fadeOut {opacity:0; transition:opacity 2s ease;}
 
-/* LANDING PAGE */
+/* Layout */
 #mainLanding{display:none; width:100%; max-width:var(--maxw);}
 h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; margin:0; text-align:center;}
-.top-block{width:100%; max-width:var(--maxw); text-align:center;}
+.top-block{text-align:center;}
 #countdown{color:var(--gold); margin-top:8px; font-size:1.05rem;}
-.fox-divider{display:flex; justify-content:center; align-items:center; margin:14px 0 18px; z-index:3; position:relative;}
-.fox-divider img{max-width:150px; width:12vw; min-width:96px; z-index:3; position:relative;}
-.container{width:100%; max-width:var(--maxw); display:flex; gap:var(--gap); align-items:stretch; position:relative; padding:12px 6px; min-height:60vh;}
-.container::before{content:""; position:absolute; left:50%; transform:translateX(-50%); top:24px; bottom:24px; width:3px; background: linear-gradient(180deg, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0.6) 50%, rgba(212,175,55,0.95) 100%); box-shadow:0 0 18px rgba(212,175,55,0.45),0 0 36px rgba(212,175,55,0.16); filter:blur(1.6px); border-radius:2px;}
-.left-page, .right-page{flex:1; display:flex; flex-direction:column; gap:1rem; padding:12px; background:transparent; z-index:1;}
-.page-inner{display:flex; flex-direction:column; gap:1rem; flex:1; align-items:center;}
+.fox-divider{display:flex; justify-content:center; margin:14px 0 18px;}
+.fox-divider img{max-width:150px; width:12vw; min-width:96px;}
+
+.container{display:flex; gap:var(--gap); align-items:stretch; padding:12px 6px;}
+.left-page,.right-page{flex:1; display:flex; flex-direction:column; gap:1rem;}
+.page-inner{display:flex; flex-direction:column; gap:1rem; align-items:center;}
+
 .book-grid, .character-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; width:100%;}
-.book-grid img, .character-grid img{width:100%; height:auto; display:block; border-radius:6px; border:2px solid rgba(212,184,144,0.07); background:#070707; object-fit:cover;}
-.announcement{color:var(--cream); line-height:1.45; font-size:0.95rem;}
-.video-section{text-align:center; margin-top:4px;}
-.video-section .subtitle{color:var(--gold); margin-bottom:6px;}
-.video-section video{width:100%; max-width:520px; border-radius:8px; border:2px solid rgba(212,175,55,0.12); display:block; margin:0 auto;}
+.book-grid img, .character-grid img{width:100%; border-radius:6px; border:2px solid rgba(212,184,144,0.07); background:#070707;}
+
+.announcement{line-height:1.45; font-size:0.95rem;}
+.video-section{text-align:center;}
+.video-section video{width:100%; max-width:520px; border-radius:8px; border:2px solid rgba(212,175,55,0.12);}
+
 .quote-carousel{position:relative; width:100%; max-width:540px; margin:0 auto;}
 .quotes-container{position:relative; min-height:86px;}
 .quote{position:absolute; left:0; top:0; width:100%; opacity:0; transition:opacity 420ms ease;}
 .quote.active{opacity:1;}
 .quote-text{font-style:italic; color:var(--gold);}
-.quote-controls{position:absolute; top:50%; left:0; right:0; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none;}
-.quote-controls button{pointer-events:auto; background:transparent; border:none; color:var(--gold); font-size:1.25rem; cursor:pointer; padding:6px;}
-.game-preview{margin-top:24px; display:flex; flex-direction:column; align-items:center; border:2px solid rgba(212,175,55,0.12); padding:12px; border-radius:8px; max-width:240px;}
+.quote-controls{position:absolute; top:50%; left:0; right:0; display:flex; justify-content:space-between; transform:translateY(-50%);}
+.quote-controls button{background:transparent; border:none; color:var(--gold); font-size:1.25rem; cursor:pointer; padding:6px;}
+
+.game-preview{margin-top:24px; text-align:center;}
 .game-preview img{width:100%; border-radius:6px;}
-.game-preview .game-title{margin-top:8px; font-weight:700; color:var(--gold); font-size:1rem; text-align:center;}
-.game-preview button{margin-top:10px; padding:8px 14px; background:var(--gold); border:none; border-radius:6px; font-weight:700; cursor:pointer; color:#000;}
-#gameContainer{display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; background:rgba(0,0,0,0.95); flex-direction:column; align-items:center; justify-content:center;}
-#gameContainer iframe{width:100%; height:100%; border:none;}
-#closeGameBtn{position:absolute; top:10px; right:10px; font-size:24px; padding:8px 12px; cursor:pointer; z-index:1000;}
-#pageFooter{position:fixed; bottom:0; width:100%; text-align:center; color:var(--cream); background:rgba(0,0,0,0.3); padding:8px 0; font-size:0.85rem; z-index:1000; pointer-events:none;}
-@media (max-width:780px){.container{flex-direction:column; padding:6px; min-height:auto;}}
+.game-preview .game-title{margin-top:8px; font-weight:700; color:var(--gold);}
+.game-preview button{margin-top:10px; padding:8px 14px; background:var(--gold); border:none; border-radius:6px; cursor:pointer; color:#000;}
+
+#gameContainer{display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; background:rgba(0,0,0,0.95);}
+#pageFooter{position:fixed; bottom:0; width:100%; text-align:center; background:rgba(0,0,0,0.3); padding:8px 0; font-size:0.85rem;}
+
+@media (max-width:780px){
+  .container{flex-direction:column;}
+}
 </style>
 </head>
 <body>
 
-<!-- CINEMATIC OVERLAY -->
+<!-- Overlay -->
 <div id="introOverlay">
   <button id="closeOverlayBtn">✖</button>
   <span id="shhhText">
@@ -142,12 +147,12 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
   </span>
 </div>
 
-<!-- MAIN LANDING -->
+<!-- Main Landing -->
 <div id="mainLanding">
   <div class="top-block">
     <h1>Spinning Down The Foxhole</h1>
     <div id="countdown">Countdown: —</div>
-    <div class="fox-divider" aria-hidden="true">
+    <div class="fox-divider">
       <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Fox divider">
     </div>
   </div>
@@ -155,27 +160,29 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
   <div class="container">
     <aside class="left-page">
       <div class="page-inner">
+        <!-- Book Grid -->
         <section class="book-grid">
-          <img src="https://i.ibb.co/QjKD7v1R/file-0000000017586246b7bb65427fa2d053.png" alt="Book cover 1">
-          <img src="https://i.ibb.co/Kj09MMH2/foxxiiibookcover-001.png" alt="Book cover 2">
-          <img src="https://i.ibb.co/zVhJH24K/file-00000000d16c620ab06fc7760df24d73.png" alt="Book poster 1">
-          <img src="https://i.ibb.co/7dFqj4cD/file-000000001404620ab819e3b15f35debe.png" alt="Book poster 2">
+          <img src="https://i.ibb.co/QjKD7v1R/file-0000000017586246b7bb65427fa2d053.png">
+          <img src="https://i.ibb.co/Kj09MMH2/foxxiiibookcover-001.png">
+          <img src="https://i.ibb.co/zVhJH24K/file-00000000d16c620ab06fc7760df24d73.png">
+          <img src="https://i.ibb.co/7dFqj4cD/file-000000001404620ab819e3b15f35debe.png">
         </section>
 
-        <section class="announcement" aria-label="Announcement">
-  <strong>✨ Book Launch Announcement</strong><br><br>
-  So excited to finally share this…<br>
-  My debut novel, <strong>Spinning Down the Fox Hole – Sisters’ Secret</strong>, releases on November 5th, 2025! 🦊✨<br><br>
-  A haunting, cinematic journey of three sisters bound by memory, loss, and secrets buried deep within the shadows of a mysterious cabin in France.<br>
-  Blending family drama, psychological tension, and folklore magic, this story pulls readers into a web of truth, trauma, and the lingering ghost of what was left behind.<br><br>
-  📖 First Edition – Independently Published, UK<br>
-  💫 Available worldwide on Amazon and major retailers<br>
-  🗓️ Release Date: November 5th, 2025<br><br>
-  Stay tuned for teasers, cover reveals, and exclusive sneak peeks —<br>
-  the fox is coming out of the shadows… 🖤🦊<br><br>
-  #SpinningDownTheFoxHole #JamieLeighMathieson #BookLaunch #IndieAuthor #MysteryThriller #SistersSecret #NewRelease #PsychologicalFiction
-</section>
+        <!-- Announcement -->
+        <section class="announcement">
+          <strong>✨ Book Launch Announcement</strong><br><br>
+          So excited to finally share this…<br>
+          My debut novel, <strong>Spinning Down the Fox Hole – Sisters’ Secret</strong>, releases on November 5th, 2025! 🦊✨<br><br>
+          A haunting, cinematic journey of three sisters bound by memory, loss, and secrets buried deep within the shadows of a mysterious cabin in France.<br>
+          Blending family drama, psychological tension, and folklore magic, this story pulls readers into a web of truth, trauma, and the lingering ghost of what was left behind.<br><br>
+          📖 First Edition – Independently Published, UK<br>
+          💫 Available worldwide on Amazon and major retailers<br>
+          🗓️ Release Date: November 5th, 2025<br><br>
+          Stay tuned for teasers, cover reveals, and exclusive sneak peeks —<br>
+          the fox is coming out of the shadows… 🖤🦊
+        </section>
 
+        <!-- Trailer -->
         <section class="video-section">
           <div class="subtitle">Trailer</div>
           <video controls preload="metadata">
@@ -189,7 +196,7 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
     I’m thrilled to share works from other talented authors alongside my own creations. Let’s celebrate indie authors and self-published stories that tug at the heart.
   </p>
   <p style="line-height:1.45; font-size:0.95rem; color:var(--cream); margin-bottom:12px;">
-    This Month’s featured author:
+    This week’s featured author:
   </p>
 
   <h3 style="color:var(--cream); margin:8px 0;">Jane L. McDonald</h3>
@@ -214,9 +221,10 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
       </div>
     </aside>
 
-    <!-- RIGHT PAGE -->
+    <!-- Right Page -->
     <main class="right-page">
       <div class="page-inner">
+        <!-- Character Grid -->
         <section class="character-grid">
           <img src="https://i.ibb.co/WN5LbDx8/Screenshot-20251011-162417-Chat-GPT.jpg" alt="The McAlpine Sisters">
           <img src="https://i.ibb.co/2YqdwBNR/file-00000000092061f4a92785320f3c26b6.png" alt="Ren">
@@ -224,12 +232,13 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
           <img src="https://i.ibb.co/DHs2Zfzw/Messenger-creation-1-A5-F92-BB-9-A4-D-4221-B4-E6-4-E1-DEC52-D93-E.jpg" alt="Cabin portrait">
         </section>
 
+        <!-- Quote Carousel -->
         <section class="quote-carousel">
           <div class="quotes-container">
             <div class="quote active"><p class="quote-text">“The past will always be the past. But it doesn’t stop haunting me.”</p></div>
             <div class="quote"><p class="quote-text">“Before I had time to think, I had already decided. I dropped my phone into my bag, slipped off my shoes, and jumped.”</p></div>
             <div class="quote"><p class="quote-text">“Even in beauty, there’s loneliness—the kind that clings, even when the world feels endless.”</p></div>
-            <div class="quote"><p class="quote-text">“He laughed into my hair, and for a moment the world was quiet again, small enough to fit inside the space between us.”</p></div>
+            <div class="quote"><p class="quote-text">“He laughed into my hair, and for a moment the world was quiet again.”</p></div>
           </div>
           <div class="quote-controls">
             <button id="prevQuote">&#10094;</button>
@@ -237,136 +246,48 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
           </div>
         </section>
 
+        <!-- Character Bios ABOVE Game -->
+        <section class="character-bios">
+          <h2 style="color:var(--gold); margin-bottom:12px;">Character Bios</h2>
+          <div class="name-card carousel-card">
+            <div class="card-content">
+              <h2 class="card-name">MARA</h2>
+              <p class="card-desc">
+                The eldest sister — the compass.<br><br>
+                Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray.
+              </p>
+              <div class="card-controls">
+                <button class="prev-btn">&lt; Prev</button>
+                <button class="next-btn">Next &gt;</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Game Preview -->
         <section class="game-preview">
           <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Game">
-          <div class="game-title">Spinning Down The Fox Hole </div>
+          <div class="game-title">Spinning Down The Fox Hole</div>
           <button id="playGameBtn">Play</button>
         </section>
-        
-       <!-- Game Updates Section -->
-<section id="game-updates" style="padding: 50px 20px; background-color: #0a0a0a; text-align: center; border: 2px solid var(--gold); border-radius: 12px; margin-top: 24px;">
-  <h2 style="font-family: 'Allura', cursive; font-size: 2.5em; color: var(--gold); margin-bottom: 20px;">Game Updates:</h2>
-  
-  <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 20px; color: var(--cream);">
-    Dearest Players, thank you for your patience waiting for updates on <strong>Spinning Down The Fox Hole: Beta Game</strong>.
-  </p>
-  
-  <div style="font-size: 1.1em; max-width: 700px; margin: 0 auto 20px; text-align: left; line-height: 1.8; color: var(--cream);">
-    <p><strong>Updates Today: 21/10</strong></p>
-    <ul style="list-style: none; padding-left: 0;">
-      <li>💛 3 Lives - Hit an Obstacle, Lose a Life</li>
-      <li>🔥 Fireball Obstacles - Jump the Fireballs, Don't Lose a Life</li>
-      <li>Extra Jump Available</li>
-    </ul>
-  </div>
-  
-  <p style="font-size: 1em; color: #b33; max-width: 700px; margin: 0 auto;">
-    ⚠️ Warning: This is a Beta Game. May contain flaws. Please be patient – we want you to have a nice experience and enjoy your game!
-  </p>
-</section>
 
-        <!-- Character Bios Carousel (Add Below Game Section) -->
-<section class="character-bios">
-  <h2 style="color:var(--gold); margin-bottom:12px;">Character Bios</h2>
-  <div class="name-card carousel-card">
-    <div class="card-content">
-      <h2 class="card-name">MARA</h2>
-      <p class="card-desc">
-        The eldest sister — the compass.<br><br>
-        Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray.
-      </p>
-      <div class="card-controls">
-        <button class="prev-btn">&lt; Prev</button>
-        <button class="next-btn">Next &gt;</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-// Modular Character Carousel
-(function(){
-  const carousel = document.querySelector('.carousel-card');
-  const cardName = carousel.querySelector('.card-name');
-  const cardDesc = carousel.querySelector('.card-desc');
-  const prevBtn = carousel.querySelector('.prev-btn');
-  const nextBtn = carousel.querySelector('.next-btn');
-
-  const flashCards = [
-    { name: "MARA", desc: "The eldest sister — the compass.<br><br>Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray." },
-    { name: "AVELINE", desc: "The protector — the one who endures.<br><br>Measured and perceptive, Aveline carries responsibility like a second skin. She’s the first to act, the last to rest, and the one who always tries to keep the storm outside from finding its way in." },
-    { name: "VIOLET", desc: "The dreamer — the heart that bruises easily.<br><br>Soft-spoken but sharp, Violet feels the world too deeply. She moves through love and fear like twin reflections, drawn to beauty even when it burns." },
-    { name: "FAYE", desc: "The youngest — the spark in the dark.<br><br>Restless, creative, and endlessly curious. Faye is both the bridge and the spark between her sisters, her imagination a light that flickers between wonder and shadow." },
-    { name: "REN", desc: "The stranger — the charm that unsettles.<br><br>Magnetic and unknowable, Ren lives at the edges of the sisters’ story — where fascination becomes danger, and love leaves a lasting mark." }
-  ];
-
-  let index = 0;
-
-  function updateCard(){
-    cardName.innerHTML = flashCards[index].name;
-    cardDesc.innerHTML = flashCards[index].desc;
-  }
-
-  prevBtn.addEventListener('click', ()=>{
-    index = (index - 1 + flashCards.length) % flashCards.length;
-    updateCard();
-  });
-
-  nextBtn.addEventListener('click', ()=>{
-    index = (index + 1) % flashCards.length;
-    updateCard();
-  });
-
-  updateCard();
-})();
-</script>
-
-<style>
-/* Character carousel card */
-.character-bios{width:100%; margin-top:24px; text-align:center;}
-.name-card.carousel-card {
-  width:100%;
-  max-width:540px;
-  min-height:250px;
-  background:#000;
-  border:2px solid var(--gold);
-  border-radius:12px;
-  padding:1.8rem;
-  text-align:center;
-  margin:0 auto 24px;
-}
-.name-card.carousel-card h2{
-  font-family:'Dancing Script', cursive;
-  font-size:2.2rem;
-  color:var(--gold);
-  margin-bottom:0.8rem;
-}
-.name-card.carousel-card p{
-  font-family:'Dancing Script', cursive;
-  font-size:1.1rem;
-  color:var(--gold);
-  line-height:1.5;
-}
-.card-controls{
-  display:flex;
-  justify-content:space-between;
-  margin-top:1rem;
-}
-.card-controls button{
-  background:var(--gold);
-  color:#000;
-  border:none;
-  border-radius:6px;
-  padding:6px 14px;
-  cursor:pointer;
-  font-family:'Dancing Script', cursive;
-}
-@media (max-width:700px){
-  .name-card.carousel-card h2{font-size:1.8rem;}
-  .name-card.carousel-card p{font-size:1rem;}
-  .card-controls button{font-size:0.9rem; padding:5px 10px;}
-}
-</style>
+        <!-- Game Updates Section -->
+        <section id="game-updates" style="padding:50px 20px; background-color:#0a0a0a; text-align:center; border:2px solid var(--gold); border-radius:12px; margin-top:24px;">
+          <h2 style="font-family:'Allura', cursive; font-size:2.5em; color:var(--gold); margin-bottom:20px;">Game Updates:</h2>
+          <p style="font-size:1.1em; max-width:800px; margin:0 auto 20px; color:var(--cream);">
+            Dearest Players, thank you for your patience waiting for updates on <strong>Spinning Down The Fox Hole: Beta Game</strong>.
+          </p>
+          <div style="font-size:1.1em; max-width:700px; margin:0 auto 20px; text-align:left; line-height:1.8; color:var(--cream);">
+            <p><strong>Updates Today: 21/10</strong></p>
+            <ul style="list-style:none; padding-left:0;">
+              <li>💛 3 Lives – Hit an Obstacle, Lose a Life</li>
+              <li>🔥 Fireball Obstacles – Jump the Fireballs, Don't Lose a Life</li>
+              <li>Extra Jump Available</li>
+            </ul>
+          </div>
+          <p style="font-size:1em; color:#b33; max-width:700px; margin:0 auto;">
+            ⚠️ Warning: This is a Beta Game. May contain flaws. Please be patient – we want you to have a nice experience and enjoy your game!
+          </p>
+        </section>
       </div>
     </main>
   </div>
@@ -378,74 +299,90 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
   <iframe id="gameFrame" src=""></iframe>
 </div>
 
-<footer id="pageFooter">©️ Spinning Down the Foxhole</footer>
+<footer id="pageFooter">© Spinning Down the Foxhole</footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', ()=>{
-  const cinematicOverlay = document.getElementById('introOverlay');
-  const closeOverlayBtn = document.getElementById('closeOverlayBtn');
-  const mainLanding = document.getElementById('mainLanding');
+// Character Carousel
+(function(){
+  const carousel=document.querySelector('.carousel-card');
+  const cardName=carousel.querySelector('.card-name');
+  const cardDesc=carousel.querySelector('.card-desc');
+  const prevBtn=carousel.querySelector('.prev-btn');
+  const nextBtn=carousel.querySelector('.next-btn');
+  const flashCards=[
+    {name:"MARA",desc:"The eldest sister — the compass.<br><br>Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray."},
+    {name:"AVELINE",desc:"The protector — the one who endures.<br><br>Measured and perceptive, Aveline carries responsibility like a second skin. She’s the first to act, the last to rest, and the one who always tries to keep the storm outside from finding its way in."},
+    {name:"VIOLET",desc:"The dreamer — the heart that bruises easily.<br><br>Soft-spoken but sharp, Violet feels the world too deeply. She moves through love and fear like twin reflections, drawn to beauty even when it burns."},
+    {name:"FAYE",desc:"The youngest — the spark in the dark.<br><br>Restless, creative, and endlessly curious. Faye is both the bridge and the spark between her sisters, her imagination a light that flickers between wonder and shadow."},
+    {name:"REN",desc:"The stranger — the charm that unsettles.<br><br>Magnetic and unknowable, Ren lives at the edges of the sisters’ story — where fascination becomes danger, and love leaves a lasting mark."}
+  ];
+  let index=0;
+  function updateCard(){cardName.innerHTML=flashCards[index].name; cardDesc.innerHTML=flashCards[index].desc;}
+  prevBtn.addEventListener('click',()=>{index=(index-1+flashCards.length)%flashCards.length;updateCard();});
+  nextBtn.addEventListener('click',()=>{index=(index+1)%flashCards.length;updateCard();});
+  updateCard();
+})();
 
-  function fadeOutOverlay(){
-    cinematicOverlay.classList.add('fadeOut');
-    setTimeout(()=>{ cinematicOverlay.style.display='none'; mainLanding.style.display='block'; },2000);
+// Page scripts
+window.addEventListener('DOMContentLoaded',()=>{
+  const overlay=document.getElementById('introOverlay');
+  const closeBtn=document.getElementById('closeOverlayBtn');
+  const main=document.getElementById('mainLanding');
+  function fadeOut(){overlay.classList.add('fadeOut');setTimeout(()=>{overlay.style.display='none';main.style.display='block';},2000);}
+  setTimeout(fadeOut,5000); closeBtn.addEventListener('click',fadeOut);
+
+  // Countdown
+  const el=document.getElementById('countdown');
+  const target=new Date('November 5, 2025 00:00:00');
+  function update(){
+    const now=new Date();let diff=target-now;if(diff<=0){el.textContent="Released!";return;}
+    const d=Math.floor(diff/86400000);diff-=d*86400000;
+    const h=Math.floor(diff/3600000);diff-=h*3600000;
+    const m=Math.floor(diff/60000);diff-=m*60000;
+    const s=Math.floor(diff/1000);
+    el.textContent=`${d}d ${h}h ${m}m ${s}s until release`;
   }
-
-  // Auto fade after 5 seconds
-  setTimeout(fadeOutOverlay,5000);
-  closeOverlayBtn.addEventListener('click',fadeOutOverlay);
-
-  // Countdown timer
-  const el = document.getElementById('countdown');
-  const targetDate = new Date('November 5, 2025 00:00:00');
-  function updateCountdown(){
-    const now = new Date();
-    let diff = targetDate - now;
-    if(diff<=0){ el.textContent="Released!"; return; }
-    const days=Math.floor(diff/(1000*60*60*24));
-    diff-=days*(1000*60*60*24);
-    const hours=Math.floor(diff/(1000*60*60));
-    diff-=hours*(1000*60*60);
-    const minutes=Math.floor(diff/(1000*60));
-    diff-=minutes*(1000*60);
-    const seconds=Math.floor(diff/1000);
-    el.textContent=`${days}d ${hours}h ${minutes}m ${seconds}s until release`;
-  }
-  updateCountdown();
-  setInterval(updateCountdown,1000);
+  update();setInterval(update,1000);
 
   // Quote carousel
-  const quotes = Array.from(document.querySelectorAll('.quote'));
-  let idx=0;
-  function show(i){ quotes.forEach((q,j)=> q.classList.toggle('active',i===j)); }
-  function next(){ idx=(idx+1)%quotes.length; show(idx); }
-  function prev(){ idx=(idx-1+quotes.length)%quotes.length; show(idx); }
+  const quotes=Array.from(document.querySelectorAll('.quote'));
+  let idx=0;function show(i){quotes.forEach((q,j)=>q.classList.toggle('active',i===j));}
+  function next(){idx=(idx+1)%quotes.length;show(idx);}
+  function prev(){idx=(idx-1+quotes.length)%quotes.length;show(idx);}
   document.getElementById('nextQuote').addEventListener('click',next);
   document.getElementById('prevQuote').addEventListener('click',prev);
-  show(idx);
   setInterval(next,4000);
 
   // Game overlay
-  const playBtn=document.getElementById('playGameBtn');
-  const overlayGame=document.getElementById('gameContainer');
+  const play=document.getElementById('playGameBtn');
+  const gameBox=document.getElementById('gameContainer');
   const iframe=document.getElementById('gameFrame');
-  const closeGameBtn=document.getElementById('closeGameBtn');
-
-  playBtn.addEventListener('click', async ()=>{
+  const closeGame=document.getElementById('closeGameBtn');
+  play.addEventListener('click',async()=>{
     iframe.src='https://insomnia932.github.io/spinning-down-the-fox-hole-game/';
-    overlayGame.style.display='flex';
-    if(overlayGame.requestFullscreen) await overlayGame.requestFullscreen();
+    gameBox.style.display='flex';
+    if(gameBox.requestFullscreen)await gameBox.requestFullscreen();
   });
-
-  closeGameBtn.addEventListener('click', async ()=>{
-    overlayGame.style.display='none';
-    iframe.src='';
-    if(document.fullscreenElement) await document.exitFullscreen();
+  closeGame.addEventListener('click',async()=>{
+    gameBox.style.display='none';iframe.src='';
+    if(document.fullscreenElement)await document.exitFullscreen();
   });
 });
 </script>
 
+<style>
+/* Character Carousel styling */
+.character-bios{width:100%;margin-top:24px;text-align:center;}
+.name-card.carousel-card{width:100%;max-width:540px;min-height:250px;background:#000;border:2px solid var(--gold);border-radius:12px;padding:1.8rem;margin:0 auto 24px;}
+.name-card.carousel-card h2{font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--gold);margin-bottom:0.8rem;}
+.name-card.carousel-card p{font-family:'Dancing Script',cursive;font-size:1.1rem;color:var(--gold);line-height:1.5;}
+.card-controls{display:flex;justify-content:space-between;margin-top:1rem;}
+.card-controls button{background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:'Dancing Script',cursive;}
+@media(max-width:700px){
+  .name-card.carousel-card h2{font-size:1.8rem;}
+  .name-card.carousel-card p{font-size:1rem;}
+  .card-controls button{font-size:0.9rem;padding:5px 10px;}
+}
+</style>
 </body>
-</html>
-
-
+  </html>
