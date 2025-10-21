@@ -128,6 +128,8 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
 .game-preview button{margin-top:10px; padding:8px 14px; background:var(--gold); border:none; border-radius:6px; cursor:pointer; color:#000;}
 
 #gameContainer{display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; background:rgba(0,0,0,0.95);}
+#gameCanvas{display:block;}
+#closeGameBtn{position:absolute; top:20px; right:20px; z-index:5; padding:10px 20px; font-size:22px; cursor:pointer; background:#222; color:gold; border:none; border-radius:6px;}
 #pageFooter{position:fixed; bottom:0; width:100%; text-align:center; background:rgba(0,0,0,0.3); padding:8px 0; font-size:0.85rem;}
 
 @media (max-width:780px){
@@ -157,120 +159,125 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
     </div>
   </div>
 
-  <div class="container">
-    <aside class="left-page">
-      <div class="page-inner">
-        <!-- Book Grid -->
-        <section class="book-grid">
-          <img src="https://i.ibb.co/QjKD7v1R/file-0000000017586246b7bb65427fa2d053.png">
-          <img src="https://i.ibb.co/Kj09MMH2/foxxiiibookcover-001.png">
-          <img src="https://i.ibb.co/zVhJH24K/file-00000000d16c620ab06fc7760df24d73.png">
-          <img src="https://i.ibb.co/7dFqj4cD/file-000000001404620ab819e3b15f35debe.png">
-        </section>
+<div class="container">
+  <!-- LEFT PAGE -->
+  <aside class="left-page">
+    <div class="page-inner">
+      <!-- Book Grid -->
+      <section class="book-grid">
+        <img src="https://i.ibb.co/QjKD7v1R/file-0000000017586246b7bb65427fa2d053.png">
+        <img src="https://i.ibb.co/Kj09MMH2/foxxiiibookcover-001.png">
+        <img src="https://i.ibb.co/zVhJH24K/file-00000000d16c620ab06fc7760df24d73.png">
+        <img src="https://i.ibb.co/7dFqj4cD/file-000000001404620ab819e3b15f35debe.png">
+      </section>
 
-        <!-- Announcement -->
-        <section class="announcement">
-          <strong>✨ Book Launch Announcement</strong><br><br>
-          So excited to finally share this…<br>
-          My debut novel, <strong>Spinning Down the Fox Hole – Sisters’ Secret</strong>, releases on November 5th, 2025! 🦊✨<br><br>
-          A haunting, cinematic journey of three sisters bound by memory, loss, and secrets buried deep within the shadows of a mysterious cabin in France.<br>
-          Blending family drama, psychological tension, and folklore magic, this story pulls readers into a web of truth, trauma, and the lingering ghost of what was left behind.<br><br>
-          📖 First Edition – Independently Published, UK<br>
-          💫 Available worldwide on Amazon and major retailers<br>
-          🗓️ Release Date: November 5th, 2025<br><br>
-          Stay tuned for teasers, cover reveals, and exclusive sneak peeks —<br>
-          the fox is coming out of the shadows… 🖤🦊
-        </section>
+      <!-- Announcement -->
+      <section class="announcement">
+        <strong>✨ Book Launch Announcement</strong><br><br>
+        So excited to finally share this…<br>
+        My debut novel, <strong>Spinning Down the Fox Hole – Sisters’ Secret</strong>, releases on November 5th, 2025! 🦊✨<br><br>
+        A haunting, cinematic journey of three sisters bound by memory, loss, and secrets buried deep within the shadows of a mysterious cabin in France.<br>
+        Blending family drama, psychological tension, and folklore magic, this story pulls readers into a web of truth, trauma, and the lingering ghost of what was left behind.<br><br>
+        📖 First Edition – Independently Published, UK<br>
+        💫 Available worldwide on Amazon and major retailers<br>
+        🗓️ Release Date: November 5th, 2025<br><br>
+        Stay tuned for teasers, cover reveals, and exclusive sneak peeks —<br>
+        the fox is coming out of the shadows… 🖤🦊
+      </section>
 
-        <!-- Trailer -->
-        <section class="video-section">
-          <div class="subtitle">Trailer</div>
-          <video controls preload="metadata">
-            <source src="https://res.cloudinary.com/dyglwmnzh/video/upload/v1760629528/lv_0_20251016163839_ml0ygv.mp4" type="video/mp4">
-          </video>
-        </section>
-        <!-- OTHER AUTHORS & EXTRA WORKS SECTION -->
-<section class="other-authors" style="margin-top:24px; width:100%; max-width:520px; text-align:center;">
-  <h2 style="color:var(--gold); margin-bottom:12px;">Other Authors & Extra Works</h2>
-  <p style="line-height:1.45; font-size:0.95rem; color:var(--cream);">
-    I’m thrilled to share works from other talented authors alongside my own creations. Let’s celebrate indie authors and self-published stories that tug at the heart.
-  </p>
-  <p style="line-height:1.45; font-size:0.95rem; color:var(--cream); margin-bottom:12px;">
-    This week’s featured author:
-  </p>
+      <!-- Trailer -->
+      <section class="video-section">
+        <div class="subtitle">Trailer</div>
+        <video controls preload="metadata">
+          <source src="https://res.cloudinary.com/dyglwmnzh/video/upload/v1760629528/lv_0_20251016163839_ml0ygv.mp4" type="video/mp4">
+        </video>
+      </section>
 
-  <h3 style="color:var(--cream); margin:8px 0;">Jane L. McDonald</h3>
-  <a href="https://amzn.eu/d/iYpAXxs" target="_blank" style="color:var(--gold); text-decoration:underline;">Soul Whisper (The Astral Saga Book 1)</a>
-  
-  <!-- Book cover image scaled smaller -->
-  <img src="https://i.ibb.co/jZWkCJF0/Screenshot-20251020-173136-Amazon-Shopping.jpg" 
-       alt="Soul Whisper by Jane L. McDonald" 
-       style="margin:12px 0; max-width:160px; width:35%; height:auto; border-radius:6px; border:2px solid var(--gold);">
+      <!-- Other Authors & Notebooks -->
+      <section class="other-authors" style="margin-top:24px; width:100%; max-width:520px; text-align:center;">
+        <h2 style="color:var(--gold); margin-bottom:12px;">Other Authors & Extra Works</h2>
+        <p style="line-height:1.45; font-size:0.95rem; color:var(--cream);">
+          I’m thrilled to share works from other talented authors alongside my own creations. Let’s celebrate indie authors and self-published stories that tug at the heart.
+        </p>
+        <p style="line-height:1.45; font-size:0.95rem; color:var(--cream); margin-bottom:12px;">
+          This week’s featured author:
+        </p>
 
-  <p style="line-height:1.45; font-size:0.95rem; color:var(--cream); margin-top:4px;">
-    Darrol is only 6 years old when tragedy strikes. Everyone assumes it was an accident, but he knows the truth—and his journey has just begun.
-  </p>
+        <h3 style="color:var(--cream); margin:8px 0;">Jane L. McDonald</h3>
+        <a href="https://amzn.eu/d/iYpAXxs" target="_blank" style="color:var(--gold); text-decoration:underline;">Soul Whisper (The Astral Saga Book 1)</a>
 
-  <h2 style="color:var(--gold); margin:20px 0 12px;">My Notebooks</h2>
-  <div class="notebook-grid" style="display:grid; grid-template-columns:1fr; gap:10px; text-align:center;">
-    <a href="https://amzn.eu/d/a20fi7z" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Horned Goddess Notebook</a>
-    <a href="https://amzn.eu/d/4NEoWCq" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Wolf and Crow Notebook</a>
-    <a href="https://amzn.eu/d/8aKmZQv" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Musical Fox Notebooks</a>
-  </div>
-</section>
-      </div>
-    </aside>
+        <img src="https://i.ibb.co/jZWkCJF0/Screenshot-20251020-173136-Amazon-Shopping.jpg" 
+             alt="Soul Whisper by Jane L. McDonald" 
+             style="margin:12px 0; max-width:160px; width:35%; height:auto; border-radius:6px; border:2px solid var(--gold);">
 
-    <!-- Right Page -->
-    <main class="right-page">
-      <div class="page-inner">
-        <!-- Character Grid -->
-        <section class="character-grid">
-          <img src="https://i.ibb.co/WN5LbDx8/Screenshot-20251011-162417-Chat-GPT.jpg" alt="The McAlpine Sisters">
-          <img src="https://i.ibb.co/2YqdwBNR/file-00000000092061f4a92785320f3c26b6.png" alt="Ren">
-          <img src="https://i.ibb.co/5h9989gw/file-0000000090ec61f5ac1c9eb51002ec6c.png" alt="Ren and Violet">
-          <img src="https://i.ibb.co/DHs2Zfzw/Messenger-creation-1-A5-F92-BB-9-A4-D-4221-B4-E6-4-E1-DEC52-D93-E.jpg" alt="Cabin portrait">
-        </section>
+        <p style="line-height:1.45; font-size:0.95rem; color:var(--cream); margin-top:4px;">
+          Darrol is only 6 years old when tragedy strikes. Everyone assumes it was an accident, but he knows the truth—and his journey has just begun.
+        </p>
 
-        <!-- Quote Carousel -->
-        <section class="quote-carousel">
-          <div class="quotes-container">
-            <div class="quote active"><p class="quote-text">“The past will always be the past. But it doesn’t stop haunting me.”</p></div>
-            <div class="quote"><p class="quote-text">“Before I had time to think, I had already decided. I dropped my phone into my bag, slipped off my shoes, and jumped.”</p></div>
-            <div class="quote"><p class="quote-text">“Even in beauty, there’s loneliness—the kind that clings, even when the world feels endless.”</p></div>
-            <div class="quote"><p class="quote-text">“He laughed into my hair, and for a moment the world was quiet again.”</p></div>
-          </div>
-          <div class="quote-controls">
-            <button id="prevQuote">&#10094;</button>
-            <button id="nextQuote">&#10095;</button>
-          </div>
-        </section>
+        <h2 style="color:var(--gold); margin:20px 0 12px;">My Notebooks</h2>
+        <div class="notebook-grid" style="display:grid; grid-template-columns:1fr; gap:10px; text-align:center;">
+          <a href="https://amzn.eu/d/a20fi7z" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Horned Goddess Notebook</a>
+          <a href="https://amzn.eu/d/4NEoWCq" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Wolf and Crow Notebook</a>
+          <a href="https://amzn.eu/d/8aKmZQv" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Musical Fox Notebooks</a>
+        </div>
+      </section>
+    </div>
+  </aside>
 
-        <!-- Character Bios ABOVE Game -->
-        <section class="character-bios">
-          <h2 style="color:var(--gold); margin-bottom:12px;">Character Bios</h2>
-          <div class="name-card carousel-card">
-            <div class="card-content">
-              <h2 class="card-name">MARA</h2>
-              <p class="card-desc">
-                The eldest sister — the compass.<br><br>
-                Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray.
-              </p>
-              <div class="card-controls">
-                <button class="prev-btn">&lt; Prev</button>
-                <button class="next-btn">Next &gt;</button>
-              </div>
+  <!-- RIGHT PAGE -->
+  <main class="right-page">
+    <div class="page-inner">
+      <!-- Character Grid -->
+      <section class="character-grid">
+        <img src="https://i.ibb.co/WN5LbDx8/Screenshot-20251011-162417-Chat-GPT.jpg" alt="The McAlpine Sisters">
+        <img src="https://i.ibb.co/2YqdwBNR/file-00000000092061f4a92785320f3c26b6.png" alt="Ren">
+        <img src="https://i.ibb.co/5h9989gw/file-0000000090ec61f5ac1c9eb51002ec6c.png" alt="Ren and Violet">
+        <img src="https://i.ibb.co/DHs2Zfzw/Messenger-creation-1-A5-F92-BB-9-A4-D-4221-B4-E6-4-E1-DEC52-D93-E.jpg" alt="Cabin portrait">
+      </section>
+
+      <!-- Quote Carousel -->
+      <section class="quote-carousel">
+        <div class="quotes-container">
+          <div class="quote active"><p class="quote-text">“The past will always be the past. But it doesn’t stop haunting me.”</p></div>
+          <div class="quote"><p class="quote-text">“Before I had time to think, I had already decided. I dropped my phone into my bag, slipped off my shoes, and jumped.”</p></div>
+          <div class="quote"><p class="quote-text">“Even in beauty, there’s loneliness—the kind that clings, even when the world feels endless.”</p></div>
+          <div class="quote"><p class="quote-text">“He laughed into my hair, and for a moment the world was quiet again.”</p></div>
+        </div>
+        <div class="quote-controls">
+          <button id="prevQuote">&#10094;</button>
+          <button id="nextQuote">&#10095;</button>
+        </div>
+      </section>
+
+      <!-- Character Bios -->
+      <section class="character-bios">
+        <h2 style="color:var(--gold); margin-bottom:12px;">Character Bios</h2>
+        <div class="name-card carousel-card">
+          <div class="card-content">
+            <h2 class="card-name">MARA</h2>
+            <p class="card-desc">
+              The eldest sister — the compass.<br><br>
+              Calm, grounded, and quietly fierce. Mara’s warmth holds her family together, her steadiness the thread that binds their hearts when everything else begins to fray.
+            </p>
+            <div class="card-controls">
+              <button class="prev-btn">&lt; Prev</button>
+              <button class="next-btn">Next &gt;</button>
             </div>
           </div>
-        </section>
-        <!-- Game Preview -->
-        <section class="game-preview">
-          <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Game">
-          <div class="game-title">Spinning Down The Fox Hole</div>
-          <button id="playGameBtn">Play</button>
-        </section>
+        </div>
+      </section>
 
-        <!-- Game Updates Section -->
+      <!-- Game Preview -->
+      <section class="game-preview">
+        <img src="https://i.ibb.co/p6Lt7nNd/e2eb6366-b194-476b-a714-99a2449d34ba.png" alt="Game">
+        <div class="game-title">Spinning Down The Fox Hole</div>
+        <button id="playGameBtn">Play</button>
+      </section>
+
+      <!-- Game Updates Section -->
+      <section id="game-updates" style="padding:50px 20px; background-color:#0a0a0a; text-align:center; border:2px solid var(--gold); border-radius:12px; margin-top:24px;">
+        <h2 style="font-family:'Allura', cursive; font-size:2.5em; color:var(--gold); margin-bottom:20px;">Game Updates:</h2>
+        <p style="font-size:1.1<!-- Game Updates Section -->
         <section id="game-updates" style="padding:50px 20px; background-color:#0a0a0a; text-align:center; border:2px solid var(--gold); border-radius:12px; margin-top:24px;">
           <h2 style="font-family:'Allura', cursive; font-size:2.5em; color:var(--gold); margin-bottom:20px;">Game Updates:</h2>
           <p style="font-size:1.1em; max-width:800px; margin:0 auto 20px; color:var(--cream);">
@@ -293,10 +300,10 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
   </div>
 </div>
 
-<!-- GAME OVERLAY -->
+<!-- GAME OVERLAY WITH FULL WORKING GAME -->
 <div id="gameContainer">
   <button id="closeGameBtn">✖</button>
-  <iframe id="gameFrame" src=""></iframe>
+  <iframe id="gameFrame" src="" style="width:100%; height:100%; border:none;"></iframe>
 </div>
 
 <footer id="pageFooter">© Spinning Down the Foxhole</footer>
@@ -359,13 +366,15 @@ window.addEventListener('DOMContentLoaded',()=>{
   const iframe=document.getElementById('gameFrame');
   const closeGame=document.getElementById('closeGameBtn');
   play.addEventListener('click',async()=>{
+    // Load the working game in iframe
     iframe.src='https://insomnia932.github.io/spinning-down-the-fox-hole-game/';
     gameBox.style.display='flex';
-    if(gameBox.requestFullscreen)await gameBox.requestFullscreen();
+    if(gameBox.requestFullscreen) await gameBox.requestFullscreen();
   });
   closeGame.addEventListener('click',async()=>{
-    gameBox.style.display='none';iframe.src='';
-    if(document.fullscreenElement)await document.exitFullscreen();
+    gameBox.style.display='none';
+    iframe.src='';
+    if(document.fullscreenElement) await document.exitFullscreen();
   });
 });
 </script>
@@ -385,4 +394,4 @@ window.addEventListener('DOMContentLoaded',()=>{
 }
 </style>
 </body>
-  </html>
+                                                  </html>
