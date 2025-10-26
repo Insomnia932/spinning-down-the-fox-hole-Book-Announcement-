@@ -235,6 +235,183 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
           <a href="https://amzn.eu/d/8aKmZQv" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; border-radius:6px; border:2px solid var(--gold); text-decoration:none;">Musical Fox Notebooks</a>
         </div>
       </section>
+      <!-- 🌟 FEATURED AUTHORS MODAL CAROUSEL 🌟 -->
+<section class="featured-authors">
+  <h2 class="section-title">✨ Featured Authors ✨</h2>
+
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <!-- Card 1 -->
+      <div class="author-card" data-author="1">
+        <img src="https://i.ibb.co/RTLH3sZL/Screenshot-20251026-004941-Facebook.jpg" alt="Ellis Grayson">
+        <h3>🪞 What Waits in the Glass 🪞</h3>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="author-card" data-author="2">
+        <img src="https://i.ibb.co/vCJS9pZ4/Screenshot-20251026-004600-Amazon-Shopping.jpg" alt="Joseph Curry">
+        <h3>💫 Spiritual Surgery 💫</h3>
+      </div>
+
+      <!-- Card 3 (Coming Soon) -->
+      <div class="author-card coming-soon">
+        <h3>Coming Soon</h3>
+      </div>
+
+      <!-- Card 4 (Coming Soon) -->
+      <div class="author-card coming-soon">
+        <h3>Coming Soon</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="author-modal" id="author-1">
+    <div class="modal-content">
+      <button class="close-modal">✖</button>
+      <img src="https://i.ibb.co/RTLH3sZL/Screenshot-20251026-004941-Facebook.jpg" alt="Ellis Grayson">
+      <h4>Ellis Grayson</h4>
+      <p>
+        Some reflections aren’t yours.<br><br>
+        When Harry returns to his family’s cottage in the Scottish Highlands after his uncle vanishes, he finds more than memories waiting. The mirrors don’t just reflect—they watch. They learn. And something inside is ready to step through.<br><br>
+        A haunting folk-horror tale of family secrets, shadow selves, and the dangers of looking too long into the dark.
+      </p>
+      <a href="https://www.amazon.co.uk/dp/B0FMYXJG62" target="_blank">✨ Available now on Amazon!</a>
+      <a href="https://www.amazon.co.uk/stores/Ellis-Grayson/author/B0FHJ839MP" target="_blank">👤 Author Page</a>
+    </div>
+  </div>
+
+  <div class="author-modal" id="author-2">
+    <div class="modal-content">
+      <button class="close-modal">✖</button>
+      <img src="https://i.ibb.co/vCJS9pZ4/Screenshot-20251026-004600-Amazon-Shopping.jpg" alt="Joseph Curry">
+      <h4>Joseph M. Curry</h4>
+      <p>
+        In Spiritual Surgery, Joseph Curry opens the door to a healing experience that goes far beyond scalpels and sutures. With decades of spiritual wisdom and intuitive depth, Curry guides readers through the transformative practice of energetic healing—where divine light and focused intention reach the places traditional medicine cannot.<br><br>
+        Blending compelling case studies, hands-on exercises, and metaphysical teachings, this book illuminates how spiritual surgery can:<br>
+        • Release deep-seated emotional trauma<br>
+        • Rebalance and revitalize the body's energy systems<br>
+        • Awaken the soul’s inherent capacity to heal<br><br>
+        Whether you're a spiritual explorer, a healing practitioner, or simply intrigued by the invisible forces that shape our health, Spiritual Surgery offers a powerful journey into the essence of inner renewal and holistic transformation.
+      </p>
+      <a href="https://amzn.eu/d/hsRZxo8" target="_blank">✨ Available now on Amazon!</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.featured-authors {
+  padding: 2rem 0;
+  color: var(--cream);
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+.author-card {
+  flex: 0 0 auto;
+  max-width: 160px;
+  scroll-snap-align: start;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: #000;
+  transition: transform 0.3s;
+}
+.author-card:hover { transform: scale(1.05); }
+.author-card img { width: 100%; border-radius: 6px; margin-bottom: 0.5rem; }
+.author-card h3 { font-size: 0.95rem; color: var(--gold); }
+
+.coming-soon { opacity: 0.6; display:flex; align-items:center; justify-content:center; }
+
+.author-modal {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+}
+.author-modal .modal-content {
+  background: #000;
+  color: var(--cream);
+  padding: 2rem;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 90%;
+}
+.author-modal .modal-content img {
+  width: 60%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.author-modal .modal-content h4 { color: var(--gold); margin-bottom: 1rem; font-size:1.2rem; }
+.author-modal .modal-content p { font-size: 0.95rem; line-height:1.5; text-align: center; }
+.author-modal .modal-content a { display:block; margin-top:0.5rem; color: var(--gold); text-decoration: underline; }
+
+.close-modal {
+  background: var(--gold);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+@media(max-width:600px){
+  .author-card { flex:0 0 120px; }
+  .author-modal .modal-content img { width: 80%; }
+  .author-modal .modal-content { padding:1rem; }
+}
+</style>
+
+<script>
+// Featured Authors Modal
+document.querySelectorAll('.author-card[data-author]').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.author;
+    const modal = document.getElementById('author-' + id);
+    if (modal) modal.style.display = 'flex';
+  });
+});
+
+document.querySelectorAll('.close-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const modal = btn.closest('.author-modal');
+    if (modal) modal.style.display = 'none';
+  });
+});
+</script>
     </div>
   </aside>
 
