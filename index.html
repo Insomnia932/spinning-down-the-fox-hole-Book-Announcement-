@@ -464,6 +464,117 @@ h1{font-family: "Great Vibes", cursive; color:var(--gold); font-size:3.2rem; mar
             ⚠️ Warning: This is a Beta Game. May contain flaws. Please be patient – we want you to have a nice experience and enjoy your game!
           </p>
         </section>
+        <!-- Hunter Crow preview card (black + gold version) -->
+<section id="hunter-crow-preview" style="padding:40px 20px; text-align:center; margin-top:24px;">
+  <div class="hc-card" aria-hidden="false">
+    <div class="hc-stars" aria-hidden="true"></div>
+
+    <a id="hunterCrowLink" href="https://insomnia932.github.io/HunterCrowGame/" target="_blank" rel="noopener noreferrer" title="Play Hunter Crow">
+      <img class="hc-crow" src="https://i.ibb.co/XkyzPdCd/crowbird.png" alt="Hunter Crow preview">
+    </a>
+
+    <div class="hc-caption" style="margin-top:12px;">
+      <div class="hc-title">Play Hunter Crow</div>
+      <a id="hunterCrowPlayBtn" class="hc-play-btn" href="https://insomnia932.github.io/HunterCrowGame/" target="_blank" rel="noopener noreferrer" title="Play Hunter Crow">
+        ▶ Play the Game
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Gold + black Hunter Crow preview */
+.hc-card {
+  display:inline-block;
+  width:100%;
+  max-width:520px;
+  border-radius:12px;
+  padding:22px;
+  position:relative;
+  background: linear-gradient(180deg, rgba(2,4,10,0.85), rgba(0,0,0,0.95));
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  border: 1px solid rgba(212,175,55,0.15);
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.hc-stars {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(212,175,55,0.9) 0, rgba(212,175,55,0.0) 40%),
+    radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.9) 0, rgba(255,255,255,0) 40%),
+    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0) 40%),
+    radial-gradient(1px 1px at 85% 70%, rgba(212,175,55,0.85) 0, rgba(212,175,55,0) 40%),
+    radial-gradient(1px 1px at 50% 85%, rgba(255,255,255,0.8) 0, rgba(255,255,255,0) 40%),
+    linear-gradient(180deg, rgba(0,0,0,0.00), rgba(0,0,0,0.35));
+  mix-blend-mode: screen;
+  opacity:0.95;
+}
+
+.hc-stars::after {
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 42%, rgba(212,175,55,0.6) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 12%, rgba(255,255,255,0.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 72%, rgba(212,175,55,0.6) 0 1px, transparent 2px);
+  opacity:0.0;
+  animation:hc-twinkle 3.6s infinite ease-in-out;
+  pointer-events:none;
+}
+@keyframes hc-twinkle {
+  0%,40%,100% {opacity:0.0}
+  60% {opacity:0.85}
+}
+
+.hc-crow {
+  width:62%;
+  max-width:320px;
+  display:block;
+  margin: 6px auto 0 auto;
+  position:relative;
+  z-index:2;
+  transform-origin:center;
+  transition: transform .18s ease;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.65));
+}
+.hc-card:hover .hc-crow { transform: translateY(-6px); }
+
+.hc-caption { position:relative; z-index:2; margin-top:6px; }
+.hc-title {
+  font-size:1.1rem;
+  font-weight:600;
+  color: var(--gold, #d4af37);
+  letter-spacing:0.5px;
+  margin-bottom:8px;
+}
+
+.hc-play-btn {
+  display:inline-block;
+  padding:12px 22px;
+  background: #000;
+  color: var(--gold, #d4af37);
+  font-weight:700;
+  border-radius:10px;
+  text-decoration:none;
+  border: 1px solid var(--gold, #d4af37);
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  box-shadow: 0 4px 14px rgba(212,175,55,0.1);
+}
+.hc-play-btn:hover {
+  background: var(--gold, #d4af37);
+  color:#000;
+  transform: translateY(-3px);
+  box-shadow:0 10px 28px rgba(212,175,55,0.3);
+}
+
+@media (max-width:600px){
+  .hc-card{ padding:18px; max-width:360px; }
+  .hc-crow{ width:78%; }
+  .hc-play-btn{ padding:10px 18px; font-size:0.95rem; }
+}
+</style>
         <section id="update-section" style="background-color:#000; color:#d4af37; padding:60px 20px; text-align:center; font-family:'Poppins', sans-serif;">
   <div style="max-width:800px; margin:0 auto;">
     <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:20px; border-bottom:1px solid #d4af37; display:inline-block; padding-bottom:10px;">
@@ -602,4 +713,4 @@ window.addEventListener('DOMContentLoaded',()=>{
 }
 </style>
 </body>
-          </html>
+  </html>
